@@ -2,18 +2,23 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { editContact } from '../actions'
 import ContactForm from '../components/ContactForm'
+import FormFooter from '../components/FormFooter'
 
+const getContactById = (contacts, id) => contacts.find(contact => contact.id === id)
 
+const mapStateToProps = (state, ownProps) => ({
+  contact: getContactById(state.contacts, +ownProps.params.id)
+})
 
-let EditContact = ({ dispatch, id }) => {
-
-  return (
-    <ContactForm onSubmit={values => {
-      dispatch(editContact(id, values.firstName, values.lastName, values.email))
-
+let EditContact = ({ dispatch, contact }) => (
+  <section>
+    <ContactForm initialValues={contact} onSubmit={values => {
+      dispatch(editContact(contact.id, values.firstName, values.lastName, values.email))
     }} />
-  )
-}
-EditContact = connect()(EditContact)
+    <FormFooter />
+  </section>
+)
+
+EditContact = connect(mapStateToProps)(EditContact)
 
 export default EditContact
