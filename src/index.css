@@ -1,0 +1,151 @@
+body {
+  background-color: #f3f3f3;
+  padding-top: 62px;
+  font-size: 12px;
+  font-family: arial, sans-serif, sans;
+}
+
+a {
+  font-family: arial, sans-serif, sans;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+}
+
+button {
+  padding: 5px;
+  font-family: arial, sans-serif, sans;
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  background-color: #aaa;
+  margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+button:hover {
+  background-color: #967810;
+}
+
+.remove-record button {
+  display: none;
+  padding: 2px;
+}
+
+.remove-record {
+  vertical-align: top;
+
+  float: right;
+  padding-right: 2px;
+  margin-top: 1px;
+}
+
+.content-section {
+  width: 100%;
+}
+
+.content {
+  background-color: #fff;
+  display: block;
+  vertical-align: top;
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+  min-height: 500px;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.content > header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.content h1 {
+  letter-spacing: 0.1em;
+  color: #364fff;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.contact-record > a:hover .remove-record button {
+  display: block;
+}
+
+.content > header.form-header {
+  padding-top: 50px;
+
+}
+
+.form-header > h1 {
+  color: #364fff;
+  display: block;
+  max-width: 50%;
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+  font-size: 18px;
+  border: 1px solid #aaa;
+  border-width: 0 0 1px 0;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+}
+
+.form {
+  background-color: #f3f3f3 !important;
+}
+
+.form-content {
+  display: block;
+  max-width: 50%;
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.field {
+  padding: 15px;
+  text-align: center;
+}
+
+.field > div {
+  position: relative;
+}
+
+.field input {
+  border: 1px solid #eee;
+  padding: 5px;
+}
+
+.field .error {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  color: #967810;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.submit {
+  padding: 20px;
+  padding-top: 50px;
+}
+
+.submit > button {
+  display: block;
+  max-width: 100px;
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: bold;
+}

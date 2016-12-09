@@ -1,0 +1,24 @@
+.main-header {
+  width: 100%;
+  height: 62px;
+  display: block;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  background-color: #f3f3f3;
+}
+
+.main-header nav {
+  margin-top: 15px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+}
+
+.main-header a {
+  font-size: 2em;
+  text-decoration: none;
+  color: #555;
+  letter-spacing: 0.05em;
+}

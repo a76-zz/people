@@ -5,6 +5,9 @@ import Root from './components/Root'
 import { createStore } from 'redux'
 import reducer from './reducers'
 
+import './reset.css'
+import './index.css'
+
 const store = createStore(reducer)
 
 render(

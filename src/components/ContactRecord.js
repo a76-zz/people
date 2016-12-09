@@ -1,22 +1,25 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
+import './ContactRecord.css'
 
 const ContactRecord = ({ id, firstName, lastName, email, onDelete }) => (
-  <tr>
-    <td>
-      {firstName}
-    </td>
-    <td>
-      {lastName}
-    </td>
-    <td>
-      {email}
-    </td>
-    <td>
-      <Link to={`/contacts/${id}`}>Edit</Link>
-      <button onClick={() => onDelete(id)}>Delete</button>
-    </td>
-  </tr>
+  <li className="contact-record">
+    <Link to={`/contacts/${id}`}>
+      <div className="position">{id}.</div>
+      <div className="info">
+        <span className="name">{firstName} {lastName}</span>
+        <span className="email">{email}</span>
+      </div>
+      <div className="remove-record">
+        <button onClick={e => {
+          e.preventDefault();
+          onDelete(id)}
+        }>del
+        </button>
+      </div>
+    </Link>
+
+  </li>
 )
 
 ContactRecord.propTypes = {

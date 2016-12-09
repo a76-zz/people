@@ -1,26 +1,29 @@
 import React, { PropTypes } from 'react'
 import ContactRecord from './ContactRecord'
+import './ContactList.css'
+import { Link } from 'react-router'
 
-const ContactList = ({ contacts, onDelete }) => (
-  <table>
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {contacts.map(contact =>
-        <ContactRecord
-          key={contact.id}
-          onDelete={onDelete}
-          {...contact}
-        />
-      )}
-    </tbody>
-  </table>
+const ContactList = ({ contacts, onDelete, on }) => (
+  <section className="content-section">
+    <div className="content">
+      <header>
+        <h1>Contacts</h1>
+      </header>
+      <ul className="list">
+        {contacts.map(contact =>
+          <ContactRecord
+            key={contact.id}
+            onDelete={onDelete}
+            {...contact}
+          />
+        )}
+      </ul>
+      <div className="list-info">
+        <Link to='/contacts/new'>Add Contact</Link>
+      </div>
+    </div>
+
+  </section>
 )
 
 ContactList.propTypes = {

@@ -1,11 +1,11 @@
 import React from 'react'
 import Contacts from '../containers/Contacts'
-import Footer from './Footer'
+import Header from './Header'
 
 const Dashboard = () => (
     <div>
+      <Header />
       <Contacts />
-      <Footer />
     </div>
 )
 
