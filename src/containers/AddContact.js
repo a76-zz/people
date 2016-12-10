@@ -12,13 +12,16 @@ let AddContact = ({ dispatch, router }) => (
       <div className="content form">
         <header className="form-header">
           <h1>Add Contact</h1>
+
         </header>
         <div className="form-content">
-          <ContactForm onSubmit={values => {
+
+          <ContactForm onSubmit={(values, _, form) => {
             dispatch(addContact(values.firstName, values.lastName, values.email))
+            form.reset();
           }} />
+          <FormFooter />
         </div>
-        <FormFooter />
       </div>
     </section>
   </div>

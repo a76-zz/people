@@ -5,7 +5,7 @@ import './ContactRecord.css'
 const ContactRecord = ({ id, firstName, lastName, email, onDelete }) => (
   <li className="contact-record">
     <Link to={`/contacts/${id}`}>
-      <div className="position">{id}.</div>
+      <div className="position"></div>
       <div className="info">
         <span className="name">{firstName} {lastName}</span>
         <span className="email">{email}</span>

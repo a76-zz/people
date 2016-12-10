@@ -1,0 +1,12 @@
+.form-footer {
+  padding: 60px 30px 30px 20px;
+  text-align: center;
+}
+
+.form-footer > a {
+  font-size: 14px;
+}
+
+.form-footer > a:hover {
+  color: #967810;
+}
