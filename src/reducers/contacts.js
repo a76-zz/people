@@ -1,33 +1,23 @@
-const contact = (state, action) => {
-
-  switch (action.type) {
-    case 'ADD_CONTACT':
-    case 'EDIT_CONTACT':
-      return {
-        id: action.id,
-        firstName: action.firstName,
-        lastName: action.lastName,
-        email: action.email
-      }
-
-    default:
-      return state
-  }
-}
+const contact = (action) => ({
+   id: action.id,
+   firstName: action.firstName,
+   lastName: action.lastName,
+   email: action.email
+})
 
 const contacts = (state = [], action) => {
   switch (action.type) {
     case 'ADD_CONTACT':
       return [
         ...state,
-        contact(undefined, action)
+        contact(action)
       ]
 
     case 'EDIT_CONTACT':
       const editIndex = state.findIndex(item => item.id === action.id);
       return [
         ...state.slice(0, editIndex),
-        contact(undefined, action),
+        contact(action),
         ...state.slice(editIndex + 1)
       ]
 
