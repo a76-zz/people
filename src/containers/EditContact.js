@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
   contact: getContactById(state.contacts, +ownProps.params.id)
 })
 
-let EditContact = ({ dispatch, contact }) => (
+let EditContact = ({ dispatch, contact, router }) => (
   <div>
     <Header />
     <section className="content-section">
@@ -21,6 +21,7 @@ let EditContact = ({ dispatch, contact }) => (
         </header>
         <div className="form-content">
           <ContactForm initialValues={contact} onSubmit={values => {
+            router.push('/')
             dispatch(editContact(contact.id, values.firstName, values.lastName, values.email))
           }} />
         </div>

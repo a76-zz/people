@@ -16,9 +16,9 @@ let AddContact = ({ dispatch, router }) => (
         </header>
         <div className="form-content">
 
-          <ContactForm onSubmit={(values, _, form) => {
+          <ContactForm onSubmit={values => {
+            router.push('/')
             dispatch(addContact(values.firstName, values.lastName, values.email))
-            form.reset();
           }} />
           <FormFooter />
         </div>
