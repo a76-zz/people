@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react'
-import { Link } from 'react-router'
-import './ContactRecord.css'
+import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
+import './ContactRecord.css';
 
 const ContactRecord = ({ id, firstName, lastName, email, onDelete }) => (
   <li className="contact-record">
@@ -20,7 +20,7 @@ const ContactRecord = ({ id, firstName, lastName, email, onDelete }) => (
     </Link>
 
   </li>
-)
+);
 
 ContactRecord.propTypes = {
   id: PropTypes.number.isRequired,
@@ -28,6 +28,6 @@ ContactRecord.propTypes = {
   lastName: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   onDelete: PropTypes.func.isRequired
-}
+};
 
-export default ContactRecord
+export default ContactRecord;

@@ -1,11 +1,17 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { addContact } from '../actions'
-import ContactForm from '../components/ContactForm'
-import FormFooter from '../components/FormFooter'
-import Header from '../components/Header'
+import React from 'react';
+import { connect } from 'react-redux';
 
-let AddContact = ({ dispatch, router }) => (
+import ContactForm from '../components/ContactForm';
+import FormFooter from '../components/FormFooter';
+import Header from '../components/Header';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions';
+
+const mapDispatchToProps = (dispatch) => ({
+  addContact: bindActionCreators(actions, dispatch).addContact
+});
+
+let AddContact = ({ addContact, router }) => (
   <div>
     <Header />
     <section className="content-section">
@@ -17,16 +23,15 @@ let AddContact = ({ dispatch, router }) => (
         <div className="form-content">
 
           <ContactForm onSubmit={values => {
-            router.push('/')
-            dispatch(addContact(values.firstName, values.lastName, values.email))
+            router.push('/');
+            addContact(values.firstName, values.lastName, values.email);
           }} />
           <FormFooter />
         </div>
       </div>
     </section>
   </div>
-)
+);
 
-AddContact = connect()(AddContact)
-
-export default AddContact
+AddContact = connect(undefined, mapDispatchToProps)(AddContact);
+export default AddContact;

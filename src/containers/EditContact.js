@@ -1,17 +1,24 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { editContact } from '../actions'
-import ContactForm from '../components/ContactForm'
-import FormFooter from '../components/FormFooter'
-import Header from '../components/Header'
+import React from 'react';
+import { connect } from 'react-redux';
 
-const getContactById = (contacts, id) => contacts.find(contact => contact.id === id)
+import ContactForm from '../components/ContactForm';
+import FormFooter from '../components/FormFooter';
+import Header from '../components/Header';
+
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions';
+
+const getContactById = (contacts, id) => contacts.find(contact => contact.id === id);
 
 const mapStateToProps = (state, ownProps) => ({
   contact: getContactById(state.contacts, +ownProps.params.id)
-})
+});
 
-let EditContact = ({ dispatch, contact, router }) => (
+const mapDispatchToProps = (dispatch) => ({
+  editContact: bindActionCreators(actions, dispatch).editContact
+});
+
+let EditContact = ({ editContact, contact, router }) => (
   <div>
     <Header />
     <section className="content-section">
@@ -21,16 +28,15 @@ let EditContact = ({ dispatch, contact, router }) => (
         </header>
         <div className="form-content">
           <ContactForm initialValues={contact} onSubmit={values => {
-            router.push('/')
-            dispatch(editContact(contact.id, values.firstName, values.lastName, values.email))
+            router.push('/');
+            editContact(contact.id, values.firstName, values.lastName, values.email);
           }} />
         </div>
         <FormFooter />
       </div>
     </section>
   </div>
-)
+);
 
-EditContact = connect(mapStateToProps)(EditContact)
-
-export default EditContact
+EditContact = connect(mapStateToProps, mapDispatchToProps)(EditContact);
+export default EditContact;

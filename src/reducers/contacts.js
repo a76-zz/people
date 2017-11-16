@@ -1,36 +1,34 @@
-const contact = (action) => ({
-   id: action.id,
-   firstName: action.firstName,
-   lastName: action.lastName,
-   email: action.email
-})
+import { messages } from 'people-config';
 
-const contacts = (state = [], action) => {
-  switch (action.type) {
-    case 'ADD_CONTACT':
+const contacts = (state = [], {type, payload}) => {
+  switch (type) {
+    case messages.sync: 
+      return payload;
+
+    case messages.addContact:
       return [
         ...state,
-        contact(action)
-      ]
+        payload
+      ];
 
-    case 'EDIT_CONTACT':
-      const editIndex = state.findIndex(item => item.id === action.id);
+    case messages.editContact:
+      const editIndex = state.findIndex(item => item.id === payload.id);
       return [
         ...state.slice(0, editIndex),
-        contact(action),
+        payload,
         ...state.slice(editIndex + 1)
-      ]
+      ];
 
-    case 'DELETE_CONTACT':
-      const deleteIndex = state.findIndex(item => item.id === action.id);
+    case messages.deleteContact:
+      const deleteIndex = state.findIndex(item => item.id === payload.id);
       return [
         ...state.slice(0, deleteIndex),
         ...state.slice(deleteIndex + 1)
-      ]
+      ];
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default contacts
+export default contacts;

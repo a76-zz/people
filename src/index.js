@@ -1,14 +1,13 @@
-import React from 'react'
-import { render } from 'react-dom'
-import Root from './components/Root'
+import React from 'react';
+import Root from './components/Root';
+import { render } from 'react-dom';
 
-import { createStore } from 'redux'
-import reducer from './reducers'
+import initStore from './store';
 
 import './reset.css'
 import './index.css'
 
-const store = createStore(reducer)
+const store = initStore();
 
 render(
   <Root store={store} />,

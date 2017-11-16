@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react'
-import ContactRecord from './ContactRecord'
-import './ContactList.css'
-import { Link } from 'react-router'
+import React, { PropTypes } from 'react';
+import ContactRecord from './ContactRecord';
+import './ContactList.css';
+import { Link } from 'react-router';
 
 const ContactList = ({ contacts, onDelete, on }) => (
   <section className="content-section">
@@ -24,7 +24,7 @@ const ContactList = ({ contacts, onDelete, on }) => (
     </div>
 
   </section>
-)
+);
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.shape({
@@ -34,6 +34,6 @@ ContactList.propTypes = {
     email: PropTypes.string.isRequired
   }).isRequired).isRequired,
   onDelete: PropTypes.func.isRequired
-}
+};
 
-export default ContactList
+export default ContactList;

@@ -1,20 +1,23 @@
-import contacts from './contacts'
+import contacts from './contacts';
+import { messages } from 'people-config';
 
 describe('contact reducer', () => {
   it('should handle intial sate', () => {
     expect(
       contacts(undefined, {})
-    ).toEqual([])
-  })
+    ).toEqual([]);
+  });
 
   it('should handle ADD_CONTACT', () => {
     expect(
       contacts([], {
-        type: 'ADD_CONTACT',
-        id: 1,
-        firstName: 'Andrei',
-        lastName: 'Silchankau',
-        email: 'andrei.silchankau@gmail.com'
+        type: messages.addContact,
+        payload: {
+          id: 1,
+          firstName: 'Andrei',
+          lastName: 'Silchankau',
+          email: 'andrei.silchankau@gmail.com'
+        }
       })
     ).toEqual([
       {
@@ -23,7 +26,7 @@ describe('contact reducer', () => {
         lastName: 'Silchankau',
         email: 'andrei.silchankau@gmail.com'
       }
-    ])
+    ]);
 
     expect(
       contacts([{
@@ -32,11 +35,13 @@ describe('contact reducer', () => {
         lastName: 'Silchankau',
         email: 'andrei.silchankau@gmail.com'
       }], {
-        type: 'ADD_CONTACT',
-        id: 2,
-        firstName: 'Leonardo',
-        lastName: 'Eiler',
-        email: 'lonardo@gmail.com'
+        type: messages.addContact,
+        payload: {
+          id: 2,
+          firstName: 'Leonardo',
+          lastName: 'Eiler',
+          email: 'lonardo@gmail.com'
+        }
       })
     ).toEqual([
       {
@@ -51,9 +56,8 @@ describe('contact reducer', () => {
         lastName: 'Eiler',
         email: 'lonardo@gmail.com'
       }
-    ])
-
-  })
+    ]);
+  });
 
   it('should handle EDIT_CONTACT', () => {
     expect(
@@ -69,11 +73,13 @@ describe('contact reducer', () => {
         lastName: 'Franks',
         email: '@gmail.com'
       }], {
-        type: 'EDIT_CONTACT',
-        id: 1,
-        firstName: 'Leonardo',
-        lastName: 'Eiler',
-        email: 'leonardo@gmail.com'
+        type: messages.editContact,
+        payload: {
+          id: 1,
+          firstName: 'Leonardo',
+          lastName: 'Eiler',
+          email: 'leonardo@gmail.com'
+        }
       })
     ).toEqual([
       {
@@ -88,8 +94,8 @@ describe('contact reducer', () => {
         lastName: 'Franks',
         email: '@gmail.com'
       }
-    ])
-  })
+    ]);
+  });
 
   it('should handle DELETE_CONTACT', () => {
     expect(
@@ -105,8 +111,10 @@ describe('contact reducer', () => {
         lastName: 'Franks',
         email: '@gmail.com'
       }], {
-        type: 'DELETE_CONTACT',
-        id: 1
+        type: messages.deleteContact,
+        payload: {
+          id: 1
+        }
       })
     ).toEqual([
       {
@@ -115,7 +123,7 @@ describe('contact reducer', () => {
         lastName: 'Franks',
         email: '@gmail.com'
       }
-    ])
-  })
+    ]);
+  });
 
 })

@@ -1,11 +1,9 @@
-import { combineReducers } from 'redux'
-import contacts from './contacts'
+import { combineReducers } from 'redux';
+import contacts from './contacts';
 
-import { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer } from 'redux-form';
 
-const contactsApp = combineReducers({
+export default combineReducers({
   contacts,
   form: formReducer
-})
-
-export default contactsApp
+});
